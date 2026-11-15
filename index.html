@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ⅶ-2-2 지구의 공전과 별자리 변화</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F9FF;--ink:#27324A;--muted:#66728C;--line:#DCE4F2;
+  --gas:#4B5BD6;--gas-soft:#E7EAFF;
+  --sky:#5AB4E8;--sky-soft:#E2F2FC;
+  --mint:#3FBFA6;--mint-soft:#DDF5EF;
+  --sun:#FFD84D;--sun-soft:#FFF6D2;
+  --answer:#16A34A;--card:#FFFFFF;--r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;font-size:19px;line-height:1.75;word-break:keep-all}
+img{max-width:100%;display:block}
+h1,h2,h3,.jua{font-family:'Jua','Noto Sans KR',sans-serif;font-weight:400;letter-spacing:-.01em}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 18px;overflow-x:auto}
+nav .brand{font-family:'Jua';font-size:20px;color:var(--gas);white-space:nowrap;margin-right:10px}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);font-size:16px;padding:6px 14px;border-radius:999px;font-weight:500}
+nav a:hover,nav a.on{background:var(--gas-soft);color:#2E3A9E}
+nav a.home-link,nav a.home-link:hover{background:var(--ink);color:#fff;font-weight:700;margin-right:6px}
+
+.hero{position:relative;overflow:hidden;background:radial-gradient(1.5px 1.5px at 12% 20%,#fff 60%,transparent),radial-gradient(1.5px 1.5px at 30% 70%,#fff 60%,transparent),radial-gradient(2px 2px at 55% 30%,#FFE58A 60%,transparent),radial-gradient(1.5px 1.5px at 75% 80%,#fff 60%,transparent),radial-gradient(1.5px 1.5px at 88% 15%,#fff 60%,transparent),radial-gradient(1px 1px at 45% 85%,#fff 60%,transparent),linear-gradient(160deg,#141A40 0%,#232B6B 55%,#34409A 100%);padding:64px 20px 70px}
+.hero .in{max-width:1180px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.hero .unit{display:inline-block;background:#fff;color:#2E3A9E;font-family:'Jua';font-size:20px;padding:4px 16px;border-radius:999px}
+.hero h1{font-size:clamp(40px,6vw,68px);line-height:1.15;margin:14px 0 10px;color:#fff}
+.hero p{margin:0;font-size:20px;color:#DDE2FF}
+.hero .pages{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.hero .in>*{min-width:0}
+.hero .pages span{background:rgba(255,255,255,.75);border-radius:12px;padding:6px 14px;font-size:17px}
+
+main{max-width:1180px;margin:0 auto;padding:10px 20px 80px}
+section{padding:46px 0 10px}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sec-head .num{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-family:'Jua';font-size:28px;color:#fff;background:var(--gas);flex:none}
+.sec-head h2{font-size:34px;margin:0;line-height:1.2}
+.sec-head small{display:block;font-family:'Noto Sans KR';font-size:15px;color:var(--muted);font-weight:500}
+
+.card{background:var(--card);border-radius:var(--r);padding:26px 28px;margin:18px 0;border:2px solid var(--line)}
+.card h3{font-size:25px;margin:0 0 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{font-family:'Jua';font-size:16px;padding:3px 12px;border-radius:999px;background:var(--sky-soft);color:#1F6FA0}
+.tag.gas{background:var(--gas-soft);color:#2E3A9E}
+.tag.mint{background:var(--mint-soft);color:#1E8571}
+.tag.sun{background:var(--sun-soft);color:#9A7400}
+.card.concept{border-color:#C3C9F5}
+.card.concept h3::before{content:"";width:10px;height:26px;border-radius:4px;background:var(--gas)}
+.card.think{background:#FBFDFF;border-color:#BFE0F5}
+.card.lab{border-color:#A9E3D6}
+.card.check{background:#FFFCEF;border-color:#F3DF8C}
+.card.next{background:var(--gas-soft);border-color:#C3C9F5}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.grid2.wide-left{grid-template-columns:1.3fr .7fr}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.fig{background:#fff;border-radius:14px;padding:8px;margin:0}
+.fig figcaption{font-size:15px;color:var(--muted);text-align:center;margin-top:4px}
+.fig.dark{background:#0B0F2A}.fig.dark figcaption{color:#DDE2FF}
+.photo{border-radius:14px;overflow:hidden}
+.bubble{background:var(--sky-soft);border-radius:18px;padding:14px 20px;font-size:19px}
+.big-q{font-family:'Jua';font-size:28px;line-height:1.45;color:#1F4E79;margin:4px 0 14px}
+.def{font-size:22px;font-weight:700;background:var(--gas-soft);border-radius:14px;padding:14px 20px;margin:12px 0}
+ol.steps{padding-left:0;list-style:none;counter-reset:s;margin:0}
+ol.steps li{counter-increment:s;position:relative;padding:6px 0 6px 46px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:32px;height:32px;border-radius:50%;background:var(--mint);color:#fff;font-family:'Jua';font-size:19px;display:grid;place-items:center;line-height:1}
+.qlist{margin:0;padding:0;list-style:none}
+.qlist>li{padding:14px 0;border-top:1px dashed var(--line)}
+.qlist>li:first-child{border-top:none}
+.qn{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-family:'Jua';font-size:17px;margin-right:8px;line-height:1}
+.note{font-size:16px;color:var(--muted)}
+.side{background:#F3F6FC;border-radius:14px;padding:12px 16px;font-size:17px;line-height:1.6}
+.side b{color:#2E3A9E}
+.warn{background:#FEF2F2;border:2px solid #FCA5A5;border-radius:14px;padding:12px 16px;font-weight:700;color:#B91C1C}
+
+/* 빈칸 · 정답 */
+.bl{display:inline-block;min-width:4.2em;padding:0 .35em;margin:0 .15em;border-radius:8px;text-align:center;cursor:pointer;color:transparent;background:var(--sun-soft);border-bottom:3px solid #E9C43A;line-height:1.45;transition:color .25s,background .25s}
+.bl.on{color:var(--answer);font-weight:900;background:#E9F8EE;border-bottom-color:var(--answer)}
+.ans{position:relative;margin-top:10px;border-radius:12px;padding:12px 16px;cursor:pointer;min-height:54px;background:#F4F6FA;border:2px dashed #C9D3E4}
+.ans>*{visibility:hidden}
+.ans::before{content:"?";position:absolute;inset:0;display:grid;place-items:center;font-family:'Jua';font-size:26px;color:#9AA7BF}
+.ans.on{background:#EDFAF1;border:2px solid #BFE8CC;color:var(--answer);font-weight:700}
+.ans.on>*{visibility:visible}
+.ans.on::before{content:none}
+.ans p{margin:0}
+.rv-bar{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.btn{font-family:'Jua';font-size:20px;border:none;border-radius:14px;padding:10px 22px;cursor:pointer;background:var(--answer);color:#fff;box-shadow:0 3px 0 #0E7A35;transition:transform .08s;text-decoration:none;display:inline-block}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #0E7A35}
+.btn .cnt{font-family:'Noto Sans KR';font-size:15px;opacity:.85;margin-left:6px}
+.btn.ghost{background:#fff;color:var(--muted);box-shadow:0 0 0 2px var(--line) inset}
+.btn.gas{background:var(--gas);box-shadow:0 3px 0 #2E3A9E}
+.btn.sky{background:var(--sky);box-shadow:0 3px 0 #2E86BA}
+.btn.link{background:#27324A;box-shadow:0 3px 0 #111827}
+.btn.sun{background:#F2B705;color:#2B2200;box-shadow:0 3px 0 #B98A00}
+.btn.yt{background:#E02424;box-shadow:0 3px 0 #9B1C1C}
+.btn.off{background:#fff;color:var(--muted);box-shadow:0 0 0 2px var(--line) inset}
+.linkbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #2563EB;outline-offset:3px}
+
+table.tb{width:100%;border-collapse:separate;border-spacing:0;font-size:18px;overflow:hidden;border-radius:14px;border:2px solid var(--line)}
+.tb th,.tb td{padding:10px 12px;text-align:center;border-top:1px solid var(--line)}
+.tb thead th{background:#EEF3FB;border-top:none;font-family:'Jua';font-weight:400;font-size:20px}
+.tb th.down{background:var(--sky-soft);color:#1F6FA0}
+.tb th.up{background:var(--gas-soft);color:#2E3A9E}
+.tb td.l{text-align:left}
+.scroll-x{overflow-x:auto}
+
+.sim{background:#fff;border-radius:var(--r);border:2px solid #BFE0F5;padding:20px;margin:18px 0}
+.sim canvas{width:100%;display:block;border-radius:14px}
+.sim-ctrl{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;margin-top:14px}
+.sim-ctrl input[type=range]{width:100%;accent-color:var(--gas);height:28px}
+.meters{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.meter{border-radius:14px;padding:10px 14px;background:#F4F7FC;text-align:center}
+.meter .k{font-size:15px;color:var(--muted)}
+.meter .v{font-family:'Jua';font-size:30px;line-height:1.25}
+.meter.p .v{color:#2E3A9E}.meter.c .v{color:#1F6FA0}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+
+.ox{display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px dashed var(--line)}
+.ox:first-of-type{border-top:none}
+.ox .s{flex:1}
+.ox .bl{min-width:2.4em;font-family:'Jua';font-size:26px}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+footer{text-align:center;color:var(--muted);font-size:15px;padding:30px 0 calc(30px + env(safe-area-inset-bottom,0px))}
+
+@media (max-width:860px){
+  body{font-size:17px}
+  .hero .in,.grid2,.grid2.wide-left{grid-template-columns:1fr}
+  .grid3,.grid4{grid-template-columns:1fr 1fr}
+  .meters{grid-template-columns:1fr}
+  .sim-ctrl{grid-template-columns:1fr}
+  .sec-head h2{font-size:28px}
+  .card{padding:20px 18px}
+}
+
+
+.boards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.boards figure{margin:0;background:#2B3A8C;border-radius:14px;overflow:hidden;text-align:center;color:#fff;font-family:'Jua';font-size:18px;padding-bottom:6px}
+.boards img{width:100%;height:110px;object-fit:contain;background:#2B3A8C}
+.room{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+.room svg{width:100%;background:#F4F6FC;border-radius:16px}
+.room .pos{font-family:'Jua';font-size:20px}
+.seen{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.seen .side{text-align:center}
+.seen .side b{display:block;font-size:15px;color:var(--muted)}
+.seen .side .nm{font-family:'Jua';font-size:28px;display:block}
+.seen .side .note{display:block}
+.orbit canvas{height:520px;background:#0B0F2A}
+.today{background:#FFF6D2;border:2px solid #F3DF8C;border-radius:14px;padding:12px 16px;margin-top:12px;font-size:18px}
+@media (max-width:860px){.boards{grid-template-columns:1fr 1fr}.room{grid-template-columns:1fr}.orbit canvas{height:420px}}
+
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="home-link" href="https://2026-1y-sub.vercel.app/">← 목록으로</a>
+  <span class="brand">Ⅶ-2 지구의 공전</span>
+  <a href="#intro">들어가기</a>
+  <a href="#try">해 보기</a>
+  <a href="#concept">연주 운동</a>
+  <a href="#sim">시뮬레이션</a>
+  <a href="#wrap">확인·정리</a>
+</div></nav>
+
+<header class="hero">
+  <div class="in">
+    <div>
+      <span class="unit">Ⅶ. 태양계 · 2. 지구와 달의 운동</span>
+      <h1>지구의 공전과<br>별자리 변화</h1>
+      <p>가을철에 잘 보이는 물고기자리는 왜 봄철에는 보기 어려울까?</p>
+      <div class="pages"><span>교과서 246~247쪽</span><span>② 지구의 공전과 별자리 변화</span><span>태양의 연주 운동 · 황도 12궁</span></div>
+    </div>
+    <img src="images/pisces_spring.webp" alt="밤하늘의 별자리를 바라보는 학생들" style="width:100%;max-width:440px;justify-self:center;border-radius:24px">
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 들어가기 ============ -->
+<section id="intro">
+  <div class="sec-head"><div class="num">1</div><h2>들어가기<small>교과서 246쪽</small></h2></div>
+
+  <div class="card check reveal" data-reveal>
+    <h3><span class="tag sun">이전 단원 확인하기</span>빈칸에 들어갈 알맞은 단어를 골라 써 보자.</h3>
+    <p class="note" style="margin-top:-6px">보기: 북극성, 천구</p>
+    <ul class="qlist">
+      <li><span class="qn">1</span>북반구의 북쪽 하늘에서 별들은 <span class="bl">북극성</span>을 중심으로 시계 반대 방향으로 운동한다.</li>
+      <li><span class="qn">2</span>밤하늘에서 별들이 붙어 있는 것처럼 보이는 가상의 둥근 하늘을 <span class="bl">천구</span>라고 한다.</li>
+    </ul>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card reveal">
+    <h3><span class="tag mint">이 단원을 배우면</span></h3>
+    <div class="side" style="font-size:19px">· 지구의 공전에 의한 별자리 변화를 설명할 수 있다.<br>· 지구의 공전을 우주에서 바라보는 관점으로 설명할 수 있다.</div>
+  </div>
+
+  <div class="card think reveal" data-reveal>
+    <h3><span class="tag">생각 깨우기</span>저건 물고기자리야!</h3>
+    <div class="grid2">
+      <img src="images/pisces_spring.webp" alt="물고기자리를 바라보는 학생들">
+      <div>
+        <div class="bubble">“봄철에는 보지 못한 별자리예요.”</div>
+        <p class="big-q" style="margin-top:14px">물고기자리가 봄철에 보기 어려운 까닭은 무엇일까?</p>
+      </div>
+    </div>
+    <div class="ans"><p>봄철에는 물고기자리가 태양과 같은 방향에 있어 태양 빛 때문에 볼 수 없다. 하지만 가을철에는 태양 반대편에 있기 때문에 잘 관측된다.</p></div>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+</section>
+
+<!-- ============ 해 보기 ============ -->
+<section id="try">
+  <div class="sec-head"><div class="num">2</div><h2>계절에 따라 보이는 별자리가 달라지는 까닭 알아보기<small>교과서 246쪽 · 해 보기</small></h2></div>
+
+  <div class="card lab reveal">
+    <h3><span class="tag mint">해 보기</span>준비와 과정</h3>
+    <div class="grid2 wide-left" style="align-items:start">
+      <div>
+        <p><b>준비물</b> | 전등, 전등 받침대, 회전의자, 계절별 별자리판</p>
+        <ol class="steps">
+          <li>가운데에 전등과 회전의자를 놓고, 그 주위에 궁수자리, 물고기자리, 쌍둥이자리, 처녀자리가 그려진 계절별 별자리판을 90° 간격으로 설치한다.</li>
+          <li>관찰자는 회전의자에 앉아 (가)에서 (라) 방향으로 전등 주위를 돌며 전등 쪽에 있는 별자리와 전등 반대쪽에 있는 별자리를 관찰해 보자.</li>
+        </ol>
+        <div class="side" style="margin-top:10px"><b>안전</b> · 전구를 맨손으로 만지지 않는다. · 전등 빛을 오랫동안 보지 않는다.</div>
+        <div class="bubble" style="margin-top:10px;font-size:17px">전등은 <b>태양</b>, 관찰자는 <b>지구</b>에 해당해.</div>
+      </div>
+      <div style="display:flex;gap:10px;align-items:flex-end;justify-content:center">
+        <img src="images/lamp.webp" alt="전등" style="max-height:220px">
+        <img src="images/chair.webp" alt="회전의자에 앉은 관찰자" style="max-height:240px">
+      </div>
+    </div>
+    <div class="boards" style="margin-top:14px">
+      <figure><img src="images/sagittarius.webp" alt="">궁수자리</figure>
+      <figure><img src="images/pisces.webp" alt="">물고기자리</figure>
+      <figure><img src="images/gemini.webp" alt="">쌍둥이자리</figure>
+      <figure><img src="images/virgo.webp" alt="">처녀자리</figure>
+    </div>
+  </div>
+
+  <div class="card lab reveal">
+    <h3><span class="tag gas">모형 따라 하기</span>(가)~(라) 위치로 옮겨 보자</h3>
+    <div class="room">
+      <svg id="room" viewBox="0 0 460 460" role="img" aria-label="전등 주위를 도는 관찰자 모형"></svg>
+      <div>
+        <div class="seg" id="posBtns"></div>
+        <div class="seen">
+          <div class="side" style="background:#FFF6D2"><b>전등(태양) 쪽 별자리</b><span class="nm" id="sunSide">-</span><span class="note">태양 빛 때문에 보기 어렵다</span></div>
+          <div class="side" style="background:#141A40;color:#fff"><b style="color:#AEB7E6">전등 반대쪽 별자리</b><span class="nm" id="nightSide" style="color:#FFD84D">-</span><span class="note" style="color:#AEB7E6">밤에 잘 보인다</span></div>
+        </div>
+        <p class="note" style="margin-top:10px">버튼을 누르면 관찰자가 (가) → (나) → (다) → (라) 방향, 곧 지구의 공전 방향으로 이동한다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card lab reveal" data-reveal>
+    <h3><span class="tag mint">정리</span></h3>
+    <ul class="qlist">
+      <li><span class="qn">1</span>(가)~(라) 위치에서 태양 쪽에 있는 별자리와 태양 반대쪽에 있는 별자리를 써 보자.
+        <div class="scroll-x" style="margin-top:8px"><table class="tb">
+          <thead><tr><th>구분</th><th class="up">태양 쪽에 있는 별자리</th><th class="down">태양 반대쪽에 있는 별자리</th></tr></thead>
+          <tbody>
+            <tr><th>(가)</th><td><span class="bl" style="min-width:6em">쌍둥이자리</span></td><td><span class="bl" style="min-width:6em">궁수자리</span></td></tr>
+            <tr><th>(나)</th><td><span class="bl" style="min-width:6em">처녀자리</span></td><td><span class="bl" style="min-width:6em">물고기자리</span></td></tr>
+            <tr><th>(다)</th><td><span class="bl" style="min-width:6em">궁수자리</span></td><td><span class="bl" style="min-width:6em">쌍둥이자리</span></td></tr>
+            <tr><th>(라)</th><td><span class="bl" style="min-width:6em">물고기자리</span></td><td><span class="bl" style="min-width:6em">처녀자리</span></td></tr>
+          </tbody>
+        </table></div></li>
+      <li><span class="qn">2</span>계절에 따라 보이는 별자리가 달라지는 까닭을 지구의 움직임과 관련지어 설명해 보자.
+        <div class="ans"><p>지구가 공전함에 따라 천구상에서 태양의 반대쪽에 위치한 별자리가 달라진다. 따라서 계절에 따라 보이는 별자리가 달라진다.</p></div></li>
+    </ul>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+</section>
+
+<!-- ============ 연주 운동 개념 ============ -->
+<section id="concept">
+  <div class="sec-head"><div class="num">3</div><h2>태양의 연주 운동<small>교과서 247쪽 · 그림 Ⅶ-8</small></h2></div>
+
+  <div class="card concept reveal" data-reveal>
+    <h3>지구의 공전과 태양의 연주 운동</h3>
+    <p>지구는 태양 주위를 <span class="bl">서쪽</span>에서 <span class="bl">동쪽</span>으로 <span class="bl">1년</span>에 한 바퀴씩 공전한다.</p>
+    <div class="def">공전하는 지구에서 태양을 관측하면 태양은 별자리 사이를 서쪽에서 동쪽으로 하루에 약 <span class="bl">1°</span>씩 이동하여 1년 후에는 처음 위치로 되돌아오는 겉보기 운동을 한다. 이를 태양의 <span class="bl">연주 운동</span>이라고 한다.</div>
+    <div class="side"><b>황도 12궁</b> 태양이 연주 운동 하면서 지나가는 길인 <b>황도</b>에 있는 12개의 별자리를 황도 12궁이라고 한다. 지구에서 봤을 때 태양의 연주 운동 방향은 지구의 공전 방향과 <b>같다</b>.</div>
+    <div class="linkbtns">
+      <a class="btn link" href="https://q.mirae-n.com/4zYkd" target="_blank" rel="noopener">▶ 개념 영상: 지구의 공전과 별자리 변화</a>
+      <a class="btn sun" href="https://qr.mirae-n.com/v/7f56q763b5" target="_blank" rel="noopener">가상 실험: 태양의 연주 운동과 별자리 변화</a>
+    </div>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card concept reveal" data-reveal>
+    <h3>계절에 따라 잘 보이는 별자리가 달라지는 까닭</h3>
+    <p>태양 쪽에 있는 별자리는 태양 빛 때문에 관측하기 <span class="bl">어렵고</span>, 태양의 <span class="bl">반대쪽</span>에 있는 별자리는 한밤중에 <span class="bl">남쪽</span> 하늘에서 잘 관측된다. 따라서 지구가 공전하면 태양이 보이는 위치가 달라지면서 계절에 따라 잘 관측되는 별자리가 달라진다.</p>
+    <div class="grid2" style="margin-top:6px">
+      <figure class="fig"><img src="images/aug_cancer_day.webp" alt="8월 낮 하늘의 게자리"><figcaption>8월에 게자리는 태양 쪽에 있어 관측하기 어렵다.</figcaption></figure>
+      <figure class="fig"><img src="images/aug_capricorn_night.webp" alt="8월 한밤중 남쪽 하늘의 염소자리"><figcaption>8월에 염소자리는 태양 반대쪽에 있어 한밤중에 남쪽 하늘에서 잘 관측된다.</figcaption></figure>
+    </div>
+    <p style="margin-top:12px">물고기자리가 태양 쪽에 있는 달은 언제인가? → <span class="bl">4월</span></p>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+</section>
+
+<!-- ============ 시뮬레이션 ============ -->
+<section id="sim">
+  <div class="sec-head"><div class="num">4</div><h2>공전하는 지구와 황도 12궁<small>우주에서 내려다본 모습</small></h2></div>
+
+  <div class="sim orbit reveal">
+    <canvas id="orb" aria-label="지구가 공전하면서 태양 쪽 별자리와 한밤중에 보이는 별자리가 바뀌는 시뮬레이션"></canvas>
+    <div class="sim-ctrl">
+      <label style="display:block"><span class="note">막대를 움직여 날짜를 바꿔 보자. 지구가 공전하는 동안 태양이 별자리 사이를 이동하는 것처럼 보인다.</span>
+        <input type="range" id="doy" min="0" max="364" step="1" value="105" aria-label="날짜"></label>
+      <div class="seg">
+        <button class="btn gas" id="playY">▶ 1년 재생</button>
+        <button class="btn sun" id="todayBtn">오늘</button>
+      </div>
+    </div>
+    <div class="meters">
+      <div class="meter"><div class="k">날짜</div><div class="v" id="mDate">4월 15일</div></div>
+      <div class="meter p"><div class="k">태양 쪽 별자리 (보기 어려움)</div><div class="v" id="mSun">물고기자리</div></div>
+      <div class="meter c"><div class="k">한밤중 남쪽 하늘 별자리</div><div class="v" id="mNight">처녀자리</div></div>
+    </div>
+    <p class="note" style="margin:10px 0 0">별자리와 태양, 지구의 크기와 거리는 실제 비율과 다르다. 교과서 그림 Ⅶ-8과 같은 기준으로 나타냈다.</p>
+  </div>
+</section>
+
+<!-- ============ 확인·정리 ============ -->
+<section id="wrap">
+  <div class="sec-head"><div class="num">5</div><h2>확인하고 정리하기<small>교과서 247쪽</small></h2></div>
+
+  <div class="card check reveal" data-reveal>
+    <h3><span class="tag sun">스스로 확인하기</span></h3>
+    <ul class="qlist">
+      <li><span class="qn">1</span>지구는 태양 주위를 동쪽에서 서쪽으로 공전한다. ( ○, ✕ ) → <span class="bl">✕</span> <span class="note">지구는 서쪽에서 동쪽으로 공전한다.</span></li>
+      <li><span class="qn">2</span>태양의 <span class="bl">연주</span> 운동은 태양이 별자리 사이를 1년에 한 바퀴씩 서쪽에서 동쪽으로 이동하는 겉보기 운동이다.</li>
+      <li><span class="qn">3</span><b style="color:#9A7400">의사 결정 능력</b> | 천체 관측 프로그램을 이용하여 자신의 생일 무렵에 태양 쪽에 있는 별자리와 한밤중에 남쪽 하늘에서 잘 관측되는 별자리를 찾아 친구들과 이야기해 보자.
+        <div class="ans"><p>(예시) 내 생일인 11월 15일에 태양 쪽에 있는 별자리는 천칭자리이다. 한밤중 남쪽 하늘에서는 태양의 반대쪽에 있는 양자리가 잘 관측된다.</p></div>
+        <p class="note" style="margin:6px 0 0">위 시뮬레이션의 날짜 막대를 자기 생일로 옮겨서 찾아보자.</p></li>
+    </ul>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card check reveal" data-reveal>
+    <h3><span class="tag sun">추가 확인 문제</span>알맞은 것을 보기에서 골라 보자.</h3>
+    <p class="note" style="margin-top:-6px">보기: 태양의 연주 운동, 지구의 공전, 지구의 자전, 별의 연주 운동</p>
+    <ul class="qlist">
+      <li><span class="qn">1</span>태양이 별자리 사이를 서쪽에서 동쪽으로 이동하여 1년 후 같은 위치로 되돌아오는 겉보기 운동 → <span class="bl" style="min-width:8em">태양의 연주 운동</span></li>
+      <li><span class="qn">2</span>1의 현상이 나타나는 까닭 → <span class="bl" style="min-width:7em">지구의 공전</span></li>
+      <li><span class="qn">3</span>별들이 북극성을 중심으로 하루에 한 바퀴씩 도는 것처럼 보이는 까닭 → <span class="bl" style="min-width:7em">지구의 자전</span></li>
+    </ul>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card check reveal" data-reveal>
+    <h3><span class="tag sun">O / X 확인</span>문장이 옳으면 O, 옳지 않으면 X</h3>
+    <div class="ox"><span class="s">① 태양 쪽에 있는 별자리는 태양 빛 때문에 관측하기 어렵다.</span><span class="bl">O</span></div>
+    <div class="ox"><span class="s">② 태양의 연주 운동 방향은 지구의 공전 방향과 반대이다.</span><span class="bl">X</span></div>
+    <div class="ox"><span class="s">③ 태양은 별자리 사이를 하루에 약 1°씩 이동하는 것처럼 보인다.</span><span class="bl">O</span></div>
+    <div class="ox"><span class="s">④ 8월 한밤중에 남쪽 하늘에서는 게자리가 잘 보인다.</span><span class="bl">X</span></div>
+    <p class="note" style="margin:8px 0 0">② 같은 방향(서쪽 → 동쪽)이다. ④ 8월에 게자리는 태양 쪽에 있어 보기 어렵고, 반대쪽의 염소자리가 잘 보인다.</p>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card concept reveal" data-reveal>
+    <h3>배운 내용 정리하기 · 자전과 공전 비교</h3>
+    <div class="scroll-x"><table class="tb">
+      <thead><tr><th></th><th class="down">지구의 자전</th><th class="up">지구의 공전</th></tr></thead>
+      <tbody>
+        <tr><th>방향 · 주기</th><td>서 → 동, <span class="bl">하루</span>에 한 바퀴</td><td>서 → 동, <span class="bl">1년</span>에 한 바퀴</td></tr>
+        <tr><th>나타나는 겉보기 운동</th><td>천체의 <span class="bl">일주</span> 운동</td><td>태양의 <span class="bl">연주</span> 운동</td></tr>
+        <tr><th>관측되는 현상</th><td>별이 북극성 중심으로 회전<br>태양이 동쪽에서 떠서 서쪽으로 짐</td><td>계절에 따라 한밤중에 보이는 <span class="bl">별자리</span>가 달라짐</td></tr>
+      </tbody>
+    </table></div>
+    <div class="rv-bar"><button class="btn rv-btn">정답 확인</button></div>
+  </div>
+
+  <div class="card next reveal">
+    <h3 style="margin:0">다음 시간에는</h3>
+    <p style="margin:6px 0 0">‘3. 달의 위상 변화’에 대해 알아보자. (교과서 248~251쪽)</p>
+  </div>
+</section>
+
+</main>
+<footer>미래엔 중학교 과학 1 · Ⅶ. 태양계 · 2. 지구와 달의 운동 · 2. 지구의 공전과 별자리 변화 (246~247쪽)</footer>
+
+<script>
+/* ---------- 교실 모형 (가)~(라) ---------- */
+(function(){
+  const svg=document.getElementById('room'),NS='http://www.w3.org/2000/svg';
+  const C=230,BR=168,OR=88;
+  // 별자리판 위치(각도, 화면 기준 0=오른쪽, 반시계 +): 쌍둥이 오른쪽, 처녀 위, 궁수 왼쪽, 물고기 아래
+  const B=[{n:'쌍둥이자리',a:0,img:'gemini'},{n:'처녀자리',a:90,img:'virgo'},{n:'궁수자리',a:180,img:'sagittarius'},{n:'물고기자리',a:270,img:'pisces'}];
+  // 관찰자 위치: (가) 왼쪽, (나) 아래, (다) 오른쪽, (라) 위  → 반시계 방향
+  const P=[{n:'(가)',a:180},{n:'(나)',a:270},{n:'(다)',a:0},{n:'(라)',a:90}];
+  const xy=(a,r)=>[C+r*Math.cos(a*Math.PI/180),C-r*Math.sin(a*Math.PI/180)];
+  let h=`<defs><radialGradient id="glow"><stop offset="0" stop-color="#FFE58A" stop-opacity=".9"/><stop offset="1" stop-color="#FFE58A" stop-opacity="0"/></radialGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4B5BD6"/></marker></defs>`;
+  h+=`<circle cx="${C}" cy="${C}" r="${OR}" fill="none" stroke="#C3C9F5" stroke-width="3" stroke-dasharray="8 6"/>`;
+  // 공전 방향 화살표
+  const arc=(a0,a1)=>{const p=xy(a0,OR+14),q=xy(a1,OR+14);return `<path d="M${p[0]} ${p[1]} A ${OR+14} ${OR+14} 0 0 0 ${q[0]} ${q[1]}" fill="none" stroke="#4B5BD6" stroke-width="2.5" marker-end="url(#ar)"/>`;};
+  h+=arc(200,250)+arc(290,340)+arc(20,70)+arc(110,160);
+  h+=`<g id="beam"></g>`;
+  B.forEach((b,i)=>{const [x,y]=xy(b.a,BR);h+=`<g id="bd${i}"><rect x="${x-62}" y="${y-30}" width="124" height="60" rx="10" fill="#2B3A8C" stroke="#fff" stroke-width="3"/><image href="images/${b.img}.webp" x="${x-58}" y="${y-28}" width="116" height="40" preserveAspectRatio="xMidYMid meet"/><text x="${x}" y="${y+24}" text-anchor="middle" font-family="Jua" font-size="15" fill="#fff">${b.n}</text></g>`;});
+  h+=`<circle cx="${C}" cy="${C}" r="46" fill="url(#glow)"/><circle cx="${C}" cy="${C}" r="18" fill="#FFD84D" stroke="#E9A400" stroke-width="3"/><text x="${C}" y="${C+40}" text-anchor="middle" font-family="Jua" font-size="16" fill="#9A7400">전등(태양)</text>`;
+  P.forEach((p,i)=>{const [x,y]=xy(p.a,OR);h+=`<text x="${xy(p.a,OR-30)[0]}" y="${xy(p.a,OR-30)[1]+6}" text-anchor="middle" font-family="Jua" font-size="18" fill="#66728C">${p.n}</text>`;});
+  h+=`<g id="obs"><circle r="18" fill="#5AB4E8" stroke="#fff" stroke-width="3"/><text y="4" text-anchor="middle" font-family="Jua" font-size="11" fill="#fff">지구</text></g>`;
+  svg.innerHTML=h;
+  const obs=svg.querySelector('#obs'),beam=svg.querySelector('#beam');
+  const sunSide=document.getElementById('sunSide'),night=document.getElementById('nightSide'),btns=document.getElementById('posBtns');
+  function go(i){
+    const p=P[i],[x,y]=xy(p.a,OR);obs.setAttribute('transform',`translate(${x} ${y})`);
+    const sunIdx=B.findIndex(b=>((b.a-p.a+360)%360)===180),nightIdx=B.findIndex(b=>b.a===p.a);
+    B.forEach((b,k)=>{const g=svg.querySelector('#bd'+k);g.style.opacity=(k===sunIdx||k===nightIdx)?1:.35;g.querySelector('rect').setAttribute('stroke',k===nightIdx?'#FFD84D':k===sunIdx?'#F59E0B':'#fff');});
+    const [nx,ny]=xy(B[nightIdx].a,BR-34),[sx,sy]=xy(B[sunIdx].a,BR-34);
+    beam.innerHTML=`<line x1="${x}" y1="${y}" x2="${nx}" y2="${ny}" stroke="#FFD84D" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round"/><line x1="${x}" y1="${y}" x2="${sx}" y2="${sy}" stroke="#F59E0B" stroke-width="2" opacity=".5"/>`;
+    sunSide.textContent=B[sunIdx].n;night.textContent=B[nightIdx].n;
+    btns.querySelectorAll('button').forEach((b,k)=>{b.classList.toggle('gas',k===i);b.classList.toggle('off',k!==i);});
+  }
+  P.forEach((p,i)=>{const b=document.createElement('button');b.className='btn off';b.textContent=p.n;b.onclick=()=>go(i);btns.appendChild(b);});
+  go(0);
+})();
+
+/* ---------- 공전 · 황도 12궁 시뮬레이션 ---------- */
+(function(){
+  const c=document.getElementById('orb'),ctx=c.getContext('2d'),doy=document.getElementById('doy');
+  const mDate=document.getElementById('mDate'),mSun=document.getElementById('mSun'),mNight=document.getElementById('mNight');
+  const Z=['물고기자리','양자리','황소자리','쌍둥이자리','게자리','사자자리','처녀자리','천칭자리','전갈자리','궁수자리','염소자리','물병자리'];
+  const MD=[31,28,31,30,31,30,31,31,30,31,30,31];
+  let W,H;function size(){const r=c.getBoundingClientRect(),d=devicePixelRatio||1;W=r.width;H=r.height;c.width=W*d;c.height=H*d;ctx.setTransform(d,0,0,d,0,0);draw();}
+  const dateOf=d=>{let m=0;while(d>=MD[m]){d-=MD[m];m++;}return [m+1,d+1];};
+  const doyOf=(m,dd)=>MD.slice(0,m-1).reduce((a,b)=>a+b,0)+dd-1;
+  // 태양 쪽 별자리 번호(연속값): 4월 15일 → 물고기(0)
+  const kOf=d=>((d-doyOf(4,15))/365.25*12+120)%12;
+  const TH0=-90; // 물고기자리 위치(화면 아래쪽)
+  const angOf=k=>(TH0+k*30)*Math.PI/180; // 반시계(+)
+  let D=+doy.value,playing=false;
+  function P(a,r,cx,cy){return [cx+r*Math.cos(a),cy-r*Math.sin(a)];}
+  function draw(){
+    if(!W)return;
+    const cx=W/2,cy=H/2,RZ=Math.min(W,H)*0.43,RO=RZ*0.52;
+    ctx.clearRect(0,0,W,H);
+    // 별
+    for(let i=0;i<140;i++){ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect((i*137.5)%W,(i*71.3)%H,1.3,1.3);}
+    const k=kOf(D),ks=Math.round(k)%12,kn=(ks+6)%12;
+    // 황도
+    ctx.strokeStyle='rgba(255,216,77,.35)';ctx.lineWidth=2;ctx.setLineDash([4,6]);ctx.beginPath();ctx.arc(cx,cy,RZ,0,6.283);ctx.stroke();ctx.setLineDash([]);
+    ctx.font=Math.max(13,Math.min(18,W/50))+'px Jua';ctx.textAlign='center';ctx.textBaseline='middle';
+    Z.forEach((n,i)=>{const a=angOf(i),[x,y]=P(a,RZ,cx,cy);
+      const isS=i===ks,isN=i===kn;
+      ctx.fillStyle=isS?'#F59E0B':isN?'#FFD84D':'rgba(43,58,140,.95)';
+      ctx.strokeStyle=isS||isN?'#fff':'rgba(174,183,230,.6)';ctx.lineWidth=isS||isN?3:1.5;
+      const w=Math.max(70,W/11),h=30;ctx.beginPath();ctx.roundRect(x-w/2,y-h/2,w,h,10);ctx.fill();ctx.stroke();
+      ctx.fillStyle=isS||isN?'#1B1B1B':'#DDE2FF';ctx.fillText(n,x,y+1);});
+    // 공전 궤도
+    ctx.strokeStyle='rgba(124,200,255,.5)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,RO,0,6.283);ctx.stroke();
+    // 월 표시(지구 위치)
+    ctx.font='14px Jua';ctx.fillStyle='rgba(221,226,255,.75)';
+    for(let m=1;m<=12;m++){const kk=kOf(doyOf(m,15)),a=angOf(kk)+Math.PI,[x,y]=P(a,RO+22,cx,cy);ctx.fillText(m+'월',x,y);}
+    // 공전 방향 화살표
+    ctx.strokeStyle='#7CC8FF';ctx.lineWidth=3;ctx.beginPath();const a1=angOf(k)+Math.PI+.25,a2=a1+.5;ctx.arc(cx,cy,RO-18,-a1,-a2,true);ctx.stroke();
+    const [ax,ay]=P(a2,RO-18,cx,cy),dA=a2+Math.PI/2;ctx.fillStyle='#7CC8FF';ctx.beginPath();ctx.moveTo(ax+8*Math.cos(dA),ay-8*Math.sin(dA));ctx.lineTo(ax+6*Math.cos(dA+2.4),ay-6*Math.sin(dA+2.4));ctx.lineTo(ax+6*Math.cos(dA-2.4),ay-6*Math.sin(dA-2.4));ctx.fill();
+    // 지구
+    const ae=angOf(k)+Math.PI,[ex,ey]=P(ae,RO,cx,cy);
+    // 시선: 지구→태양→태양 쪽 별자리 / 지구→반대쪽 별자리
+    const [sx,sy]=P(angOf(k),RZ-18,cx,cy),[nx,ny]=P(angOf(k)+Math.PI,RZ-18,cx,cy);
+    ctx.setLineDash([3,6]);ctx.strokeStyle='rgba(245,158,11,.8)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(sx,sy);ctx.stroke();
+    ctx.strokeStyle='rgba(255,216,77,1)';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(ex,ey);ctx.lineTo(nx,ny);ctx.stroke();ctx.setLineDash([]);
+    // 태양
+    const g=ctx.createRadialGradient(cx,cy,4,cx,cy,46);g.addColorStop(0,'rgba(255,230,120,1)');g.addColorStop(1,'rgba(255,200,60,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,46,0,6.283);ctx.fill();
+    ctx.fillStyle='#FFD84D';ctx.beginPath();ctx.arc(cx,cy,20,0,6.283);ctx.fill();ctx.fillStyle='#5B4300';ctx.font='15px Jua';ctx.fillText('태양',cx,cy+1);
+    // 지구 (낮/밤)
+    ctx.fillStyle='#1E5FA8';ctx.beginPath();ctx.arc(ex,ey,13,0,6.283);ctx.fill();
+    ctx.fillStyle='#7CC4F0';ctx.beginPath();const toSun=Math.atan2(-(cy-ey),cx-ex);ctx.arc(ex,ey,13,-toSun-Math.PI/2,-toSun+Math.PI/2);ctx.fill();
+    ctx.fillStyle='#DDE2FF';ctx.font='15px Jua';ctx.fillText('지구',ex,ey+26);
+    // 표시
+    const [m,dd]=dateOf(D);mDate.textContent=m+'월 '+dd+'일';mSun.textContent=Z[ks];mNight.textContent=Z[kn];
+  }
+  addEventListener('resize',size);size();
+  doy.addEventListener('input',()=>{D=+doy.value;draw();});
+  document.getElementById('todayBtn').onclick=()=>{const t=new Date();D=doyOf(t.getMonth()+1,Math.min(t.getDate(),MD[t.getMonth()]));doy.value=D;draw();};
+  const pb=document.getElementById('playY');let last=0;
+  function loop(now){if(!playing)return;const dt=last?(now-last)/1000:0;last=now;D=(D+dt*30)%365;doy.value=Math.floor(D);draw();requestAnimationFrame(loop);}
+  pb.onclick=()=>{playing=!playing;pb.textContent=playing?'❚❚ 멈춤':'▶ 1년 재생';last=0;if(playing)requestAnimationFrame(loop);};
+})();
+
+
+/* 정답 확인: 버튼 한 번에 빈칸 하나씩 */
+document.querySelectorAll('[data-reveal]').forEach(box=>{
+  const items=[...box.querySelectorAll('.bl, .ans, .mk')];
+  const btn=box.querySelector('.rv-btn');
+  if(!btn||!items.length) return;
+  const shown=()=>items.filter(x=>x.classList.contains('on')).length;
+  const upd=()=>{
+    const n=shown();
+    if(n<items.length){btn.innerHTML='정답 확인<span class="cnt">'+n+' / '+items.length+'</span>';btn.classList.remove('ghost');}
+    else{btn.textContent='다시 가리기';btn.classList.add('ghost');}
+  };
+  btn.addEventListener('click',()=>{
+    const next=items.find(x=>!x.classList.contains('on'));
+    if(next) next.classList.add('on'); else items.forEach(x=>x.classList.remove('on'));
+    upd();
+  });
+  items.forEach(el=>el.addEventListener('click',()=>{el.classList.add('on');upd();}));
+  upd();
+});
+/* 스크롤 페이드 & 메뉴 강조 */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const links=[...document.querySelectorAll('nav a:not(.home-link)')];
+const secIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section').forEach(s=>secIo.observe(s));
+
+</script>
+</body>
+</html>
